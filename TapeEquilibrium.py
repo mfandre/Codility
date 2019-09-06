@@ -30,16 +30,20 @@ def solution(A):
     min_diff = abs(start_sum_lower - start_sum_upper)
     #print("start_sum_lower", start_sum_lower)
     #print("start_sum_upper", start_sum_upper)
+    #print("diff", min_diff)
     
     if len(A) == 2:
         return min_diff
    
     for i in range(1, len(A)):
+        if i == len(A)-1:
+            continue
         start_sum_lower = start_sum_lower + A[i]
         start_sum_upper = start_sum_upper - A[i]
         #print("start_sum_lower", start_sum_lower)
         #print("start_sum_upper", start_sum_upper)
         diff = abs((start_sum_lower) - (start_sum_upper))
+        #print("diff", diff)
         if min_diff > diff:
             min_diff = diff
     return min_diff
